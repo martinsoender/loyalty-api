@@ -1,0 +1,24 @@
+#!/bin/bash
+
+IMAGE_NAME=clubnorse-api
+IMAGE_VERSION=latest # $(cat package.json | jq -r '.version')
+IMAGE=blazarcapital/${IMAGE_NAME}:${IMAGE_VERSION}
+
+source .env.${NODE_ENV}
+
+docker stop ${IMAGE_NAME}
+docker rm -f ${IMAGE_NAME}
+docker run -d \
+  -e DB_HOST=${DB_HOST} \
+  -e DB_PORT=${DB_PORT} \
+  -e DB_NAME=${DB_NAME} \
+  -e DB_USER=${DB_USER} \
+  -e DB_PASS=${DB_PASS} \
+  -e DB_CERT=${DB_CERT} \
+  -e DB_KEY=${DB_KEY} \
+  -e POSTMARK_API_TOKEN=${POSTMARK_API_TOKEN} \
+  -e JWT_SECRET=${JWT_SECRET} \
+  -p 3001:3001 \
+  --name=${IMAGE_NAME} \
+  --restart=on-failure \
+  ${IMAGE}

@@ -1,0 +1,23 @@
+{
+  "name": "@theoyalty/api",
+  "version": "1.0.0-rc.1",
+  "description": "Loyalty API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinsoender/loyalty-api.git"
+  },
+  "author": "Martin Søndergaard",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "fastify": "^1.13.2",
+    "fastify-cors": "^1.0.0",
+    "jsonwebtoken": "^8.4.0",
+    "pg": "^7.7.1",
+    "postmark": "^2.2.3"
+  }
+}

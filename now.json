@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "clubnorse-api",
+  "alias": "api.clubnorse.com",
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "env": {
+    "DB_HOST": "@db_host",
+    "DB_PORT": "@db_port",
+    "DB_NAME": "@db_name",
+    "DB_USER": "@db_user",
+    "DB_PASS": "",
+    "POSTMARK_API_TOKEN": "@postmark_api_token",
+    "JWT_SECRET": "@jwt_secret"
+  }
+}
